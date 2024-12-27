@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gümüşhane Turist Rehberi</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+</head>
+<body>
+        
+<button id="back-to-top" title="Yukarı Git">↑</button>
+    <header>
+        <nav>
+            <div class="logo">
+                <a id="logo" ><img src="./resimler/gümüşhanebel.jpg" alt="Gümüşhane Belediyesi Logosu"></a>
+            </div>
+          
+            
+            <div class="menu-toggle" id="mobile-menu">
+              <!--spanla değiştir-->
+            </div>
+            <span class="nav-menu">
+
+          
+
+
+
+                <span class="nav-item"><a href="#home">Ana Sayfa</a></span>
+                <span class="nav-item"><a href="#places">Turistik Yerler</a></span>
+                <span class="nav-item"><a href="#map">Harita</a></span>
+                <span class="nav-item"><a href="#events">Etkinlikler</a></span>
+                <span class="nav-item"><a href="#tourist-spots">Faydalı Yerler</a></span>
+            </span>
+        </nav>
+    </header>
+    
+    
+    <section id="home">
+        <div class="slider-container" style="border-radius: 20px;">
+            <!-- Slider -->
+            <div class="slider">
+                <div class="slide fade">
+                    <img src="./resimler/gümüşhane1.jpg" alt="Gümüşhane 1">
+                    <div class="text">
+                        <h1>Gümüşhane'ye Hoş Geldiniz</h1>
+                        <p>Doğanın ve tarihin buluşma noktası</p>
+                    </div>
+                </div>
+                <div class="slide fade">
+                    <img src="./resimler/kale.webp" alt="Gümüşhane 2">
+                    <div class="text">
+                        <h1>Keşfetmeye Başla</h1>
+                        <p>Gümüşhane'nin eşsiz güzelliklerini keşfedin</p>
+                    </div>
+                </div>
+                <div class="slide fade">
+                    <img src="./resimler/camii.jpg" alt="Gümüşhane 3">
+                    <div class="text">
+                        <h1>Tarihin İzinde</h1>
+                        <p>Geçmişin izlerini her adımda hissedin</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Previous and Next buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    
+            <!-- Dots -->
+            <div class="dots-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section id="places">
+        <h2>Turistik Yerler</h2>
+        <div class="places-container">
+            <!-- JavaScript ile Dinamik Olarak Yüklenecek -->
+        </div>
+    </section>
+
+
+    <section id="map">
+        <h2 style="color: white;">-Harita-</h2>
+        <div id="map-container"></div>
+    </section>
+    
+
+    <section id="events">
+        <h2>Yaklaşan Etkinlikler</h2>
+        <div class="events-container">
+            <!-- JavaScript ile Dinamik Olarak Yüklenecek -->
+        </div>
+    </section>
+
+
+<section id="tourist-spots">
+    <h2>Turistler İçin Faydalı Yerler</h2>
+    <div class="tourist-places-container">
+        <div class="tourist-place-card">
+
+            <h3>Ramada Gümüşhane</h3>
+            <p>Gümüşhane'deki konforlu bir otel.</p>
+            <img src="./resimler/ramada.webp" alt="Hilton Otel" />
+            <a href="https://www.google.com/maps/place/Ramada+G%C3%BCm%C3%BC%C5%9Fhane/@40.4627313,39.4552598,3671m/data=!3m1!1e3!4m9!3m8!1s0x40651c0f6a14460b:0x92d09ca0742ca27e!5m2!4m1!1i2!8m2!3d40.465559!4d39.462854!16s%2Fg%2F11f1vqt2_2?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="navigate-btn">Yol Tarifi Al</a>
+        </div>
+        <div class="tourist-place-card">
+            <h3>Opet Benzin İstasyonu</h3>
+            <p>Yakıt için güvenilir bir durak.</p>
+            <img src="./resimler/opet.webp" alt="Opet Benzin İstasyonu" />
+            <a href="https://www.google.com/maps/place/Opet/@40.4630044,39.4651939,276m/data=!3m1!1e3!4m6!3m5!1s0x40651c062a3db4b3:0x23954d43e1511850!8m2!3d40.4632845!4d39.4658102!16s%2Fg%2F1tx45j8q?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="navigate-btn">Yol Tarifi Al</a>
+        </div>
+        <div class="tourist-place-card">
+            <h3>Gümüşhane Otagarı</h3>
+            <p>en güvenli ulaşım yeri.</p>
+            <img src="./resimler/otogar.webp" alt="otogar" />
+            <a href="https://www.google.com/maps/place/Hasanbey,+Gümüşhane+Otogarı,+29000+Gümüşhane+Merkez%2FGümüşhane/@40.4607481,39.4702837,276m/data=!3m1!1e3!4m15!1m8!3m7!1s0x40651bf82fd0b16b:0xb227043e8db755b4!2zSGFzYW5iZXksIEfDvG3DvMWfaGFuZSBPdG9nYXLEsSwgMjkwMDAgR8O8bcO8xZ9oYW5lIE1lcmtlei9Hw7xtw7zFn2hhbmU!3b1!8m2!3d40.4608287!4d39.4700789!16s%2Fg%2F11byl9zb9v!3m5!1s0x40651bf82fd0b16b:0xb227043e8db755b4!8m2!3d40.4608287!4d39.4700789!16s%2Fg%2F11byl9zb9v?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="navigate-btn">Yol Tarifi Al</a>
+        </div>
+        <div class="tourist-place-card">
+            <h3> Devlet Hastanesi</h3>
+            <p>Gümüşhane Devlet Hastanesi</p>
+            <img src="./resimler/hastanee.webp" alt="devlet Hastanesi" />
+            <a href="https://www.google.com/maps/place/Gümüşhane+Devlet+Hastanesi/@40.4440804,39.4977801,655m/data=!3m1!1e3!4m14!1m7!3m6!1s0x40651bd6cdffb6c3:0xc694db6b3112064d!2zR8O8bcO8xZ9oYW5lIERldmxldCBIYXN0YW5lc2k!8m2!3d40.4440763!4d39.500355!16s%2Fg%2F11c7nn8k9g!3m5!1s0x40651bd6cdffb6c3:0xc694db6b3112064d!8m2!3d40.4440763!4d39.500355!16s%2Fg%2F11c7nn8k9g?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="navigate-btn">Yol Tarifi Al</a>
+        </div>
+    </div>
+</section>
+
+    
+
+    <footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Hakkımızda</h3>
+            <p>Gümüşhane'nin tarihi ve doğal güzelliklerini tanıtmayı amaçlayan bu web sitesi, ziyaretçilere rehberlik etmek için oluşturuldu.</p>
+        </div>
+        <div class="footer-column">
+            <h3>İletişim</h3>
+           <a class="footlink"  href="https://www.google.com/maps/place/G%C3%BCm%C3%BC%C5%9Fhane+Belediyesi/@40.458465,39.4761529,649m/data=!3m2!1e3!4b1!4m6!3m5!1s0x40651bf0722e2c67:0x2227fac57cb8514b!8m2!3d40.4584609!4d39.4787278!16s%2Fg%2F1tgf688t?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank"> <p>📍 Gümüşhane Belediyesi, Merkez</p></a>
+            <p>📞 0466 123 45 67</p>
+            <p>
+                📧 <a class="footlink" href="mailto:info@gumushane.bel.tr">info@gumushane.bel.tr</a>
+              </p>
+                      </div>
+        <div class="footer-column">
+            <h3>Sosyal Medya</h3>
+            <div class="social-icons">
+                <!-- Bootstrap Icons kullanarak sosyal medya ikonları -->
+                <a href="#" class="social-icon" jtarget="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://x.com/Twitter" class="social-icon" target="_blank"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.instagram.com/arda_irmk.55/?__pwa=1" class="social-icon" target="_blank"><i class="bi bi-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Gümüşhane Belediyesi - Tüm Hakları Saklıdır.</p>
+    </div>
+</footer>
+
+    
+
+    <script src="script.js"></script>
+
+
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="slider55">
+                <div class="slides"></div>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
